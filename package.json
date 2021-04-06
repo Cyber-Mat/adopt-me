@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "format": "prettier \"src/**/*.{js,html,css}\" --write",
+    "format": "prettier \"src/**/*.{js,jsx, html,css}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,8 +21,12 @@
   "homepage": "https://github.com/Cyber-Mat/adopt-me#readme",
   "description": "",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
     "parcel-bundler": "^1.12.5",
     "prettier": "^2.2.1"
   },
