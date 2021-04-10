@@ -22,6 +22,7 @@ const SearchParams = () => {
     });
 
     setPets(animals || []);
+    git;
   }
 
   useEffect(() => {
