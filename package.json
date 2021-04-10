@@ -6,6 +6,7 @@
     "format": "prettier \"src/**/*.{js,jsx, html,css}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html",
+    "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
