@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import pet from '@frontendmasters/pet';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 class Details extends Component {
   constructor(props) {
@@ -25,7 +26,37 @@ class Details extends Component {
   }
 
   render() {
-    return;
+    if (this.state.loading) {
+      return (
+        <div className='details'>
+          <SkeletonTheme color='#d8e3e7' highlightColor='#f4f4f4'>
+            <h1>
+              <Skeleton />
+            </h1>
+            <h2>
+              <Skeleton />
+            </h2>
+
+            <p>
+              <Skeleton count={3} />
+            </p>
+          </SkeletonTheme>
+        </div>
+      );
+    }
+
+    const { animal, breed, location, description, name } = this.state;
+
+    return (
+      <div className='details'>
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <button>Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
   }
 }
 
