@@ -3,13 +3,7 @@ import pet from '@frontendmasters/pet';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 class Details extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-    };
-  }
+  state = { loading: true };
 
   componentDidMount() {
     pet.animal(Number(this.props.id)).then(({ animal }) => {
