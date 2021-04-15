@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import pet from '@frontendmasters/pet';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import Carousel from './Carousel';
+import ErrorBoundaries from './ErrorBoundary';
 
 class Details extends Component {
   state = { loading: true };
@@ -39,11 +41,13 @@ class Details extends Component {
       );
     }
 
-    const { animal, breed, location, description, name } = this.state;
+    const { animal, breed, location, description, name, media } = this.state;
 
     return (
       <div className='details'>
         <div>
+          <Carousel media={media} />
+
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
           <button>Adopt {name}</button>
@@ -54,4 +58,10 @@ class Details extends Component {
   }
 }
 
-export default Details;
+export default function DetailsWithErrorBoundary(props) {
+  return (
+    <ErrorBoundaries>
+      <Details {...props} />
+    </ErrorBoundaries>
+  );
+}
