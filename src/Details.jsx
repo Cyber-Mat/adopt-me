@@ -3,6 +3,7 @@ import pet from '@frontendmasters/pet';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import Carousel from './Carousel';
 import ErrorBoundaries from './ErrorBoundary';
+import ThemeContext from './ThemeContext';
 
 class Details extends Component {
   state = { loading: true };
@@ -47,10 +48,18 @@ class Details extends Component {
       <div className='details'>
         <div>
           <Carousel media={media} />
-
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
-          <button>Adopt {name}</button>
+          <ThemeContext.Consumer>
+            {
+              // could destructure theme off themeHook ([theme])
+              themeHook => (
+                <button style={{ backgroundColor: themeHook[0] }}>
+                  Adopt {name}
+                </button>
+              )
+            }
+          </ThemeContext.Consumer>
           <p>{description}</p>
         </div>
       </div>
